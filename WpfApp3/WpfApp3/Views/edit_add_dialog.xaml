@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfApp3.Views.edit_add_dialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3.Views"
+        mc:Ignorable="d"
+        x:Name="TestWindow"
+        Title="{Binding Title_window}" Height="250" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    
+    
+    <Grid  >
+        <StackPanel Orientation="Vertical" Background="snow">
+            <StackPanel >
+                <StackPanel Orientation="Horizontal">
+                    <Label Margin="10 10 10 10" Content="Author: " FontSize="15" FontWeight="DemiBold"  />
+                    <TextBox Margin="0 10 10 10" Text="{Binding Author_block, Mode=TwoWay}" Width="176"    FontSize="15" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Margin="10 10 10 10" Content="Title: " FontSize="15" FontWeight="DemiBold" />
+                    <TextBox Margin="17 10 10 10" Text="{Binding Title_block, Mode=TwoWay}"  Width="181" FontSize="15"  />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="47">
+                    <Label Margin="10 10 10 10" Content="Year: " FontSize="15" FontWeight="DemiBold"  />
+                    <ComboBox Margin="15 10 10 10" Width="100" DisplayMemberPath="Number" ItemsSource="{Binding Path=values, Mode=TwoWay}" SelectedItem="{Binding Path=Selected_year, Mode=TwoWay}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Button Content="{Binding Button,Mode=OneWay}" Command="{Binding Modification, Mode=TwoWay}" FontWeight="DemiBold" Margin="50,23,40,0" Height="27" Width="77" FontSize="15" />
+                    <Button Content="Cancel" FontWeight="DemiBold" Command="{Binding CloseWindow, Mode=OneWay}" CommandParameter="{Binding ElementName=TestWindow}" Margin="0,22,0,1" Height="27" Width="77"  FontSize="15"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>
